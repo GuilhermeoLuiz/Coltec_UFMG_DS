@@ -7,5 +7,6 @@ int main(int argc, char** argv) {
     //Imprimi Hello Word e realiza a funcao do programa
     printf("Hello Word!");
 
+    //Encerra código
     return SUCESSO;
 }
