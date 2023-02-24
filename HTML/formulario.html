@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+    <head>
+
+        <meta charset="UTF-8"/>
+    </head>
+
+    <body>
+        <form>
+            <fieldset>
+                <legend> <b> Dados profissionais</b> </legend>
+                <label for="codigo">Código: </label>
+                <input type="number" id="codigo"/><br>
+
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome"/><br>
+
+                <label for="senha">Senha:</label>
+                <input type="password" id="senha"/><br>
+
+                <label for="sexo">Sexo:</label>
+                <label>
+                    <input type="radio" name="sexo:" id="masculino"> Masculino
+                </label>
+                <label>
+                    <input type="radio" name="sexo:" id="feminino"> Feminino
+                </label><br>
+
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade"/><br>
+
+                <label for="cartao_credito">Cartão Crédito:</label>
+                <select name="cartao_de_credito" id="cartao_de_credito">
+                    <option value="mastercard">Mastercard</option>
+                    <option value="visa">Visa</option>
+                    <option value="american_express">American Express</option>
+                </select><br>
+
+            </fieldset>
+
+            <fieldset>
+                <legend> <b> Dados Profissionais </b></legend>
+                <label for="cargo">Cargo:</label>
+                <select name="cargo" id="cargo">
+                    <option value="analista_junior">Analista Júnior</option>
+                    <option value="analista_pleno">Analista Pleno</option>
+                    <option value="analista_senior">Analista Sênior</option>
+                </select><br>
+                
+                Informações pessoais:<br> 
+                <input type="checkbox" name="Informações" value="Fumante"> Fumante </input> <br> 
+
+                <input type="checkbox" name="Informações" value="Pratica exercícios físicos"> Pratica exercícios físicos </input><br>
+
+                <input type="checkbox" name="Informações" value="Consome bebida alcoólica"> Consome bebida alcoólica </input> <br>
+
+                Experiências profissionais: <br> 
+                <textarea placeholder="Data Início/Data Fim/Empresa/Cargo" cols="60" rows="4"></textarea>
+
+            </fieldset>
+        </form>
+
+    </body>
+
+</html>
