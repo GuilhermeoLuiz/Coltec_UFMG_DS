@@ -1,4 +1,4 @@
-#include "Cabeçalho.h"
+#include "Filas.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -26,13 +26,13 @@ int main(int argc, char** argv)
 			getchar();
 			fgets(tmp_placa, N, stdin);
 
-			fila_insere_vet(point_f, tmp_placa);
+			fila_insere_l(point_f, tmp_placa);
 
 			printf("Quantidade de carros: %d\n", point_f->n);
 			printf("Placas:\n");
 			for (i = point_f->ini; i < (point_f->ini + point_f->n) % (N + 1); i++)
 			{
-				printf("%s\n", point_f->placa[i]);
+				printf("%s\n", point_f->vet[i]);
 			}
 			break;
 		}
@@ -48,12 +48,12 @@ int main(int argc, char** argv)
 				t = 0;
 				for (j = 0; j < (N-1); j++)
 				{
-					if (point_f->placa[i][j] == tmp_placa[j])
+					if (point_f->vet[i] == tmp_placa[j])
 					{
 						t++;
 						if (t == (N-1))
 						{
-							point_f = fila_retira_vet(point_f, i);
+							fila_retira_vet(point_f, i);
 						}
 					}
 				}
@@ -63,7 +63,7 @@ int main(int argc, char** argv)
 			printf("Placas:\n");
 			for (i = point_f->ini; i < (point_f->ini + point_f->n) % (N + 1); i++)
 			{
-				printf("%s\n", point_f->placa[i]);
+				printf("%s\n", point_f->vet[i]);
 			}
 
 			break;
