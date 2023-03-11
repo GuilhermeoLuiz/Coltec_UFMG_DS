@@ -1,4 +1,4 @@
-package TP_Thread;
+package TP_Thread.Corrida_dos_Sapos;
 
 public class Sapo extends Thread {
 

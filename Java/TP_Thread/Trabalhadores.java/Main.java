@@ -6,7 +6,7 @@ public class Main{
         Trabalhador raimundo = new Trabalhador (" bota ", 500) ;
         
         //inicia corrida
-        severino.start () ;
-        raimundo.start () ;
+        severino.start();
+        raimundo.start();
     }
 }

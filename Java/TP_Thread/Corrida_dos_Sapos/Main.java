@@ -1,4 +1,4 @@
-package TP_Thread;
+package TP_Thread.Corrida_dos_Sapos;
 
 import java.util.LinkedList;
 import java.util.Scanner;
