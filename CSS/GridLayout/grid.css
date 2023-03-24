@@ -6,12 +6,12 @@
 }
 
 .row{
-    
+
 }
 
 .col_1, .col2, .col_3, .col_4, .col_5, .col_6, .col_7, .col_8, .col_9, .col_10, .col_11, .col_12{
     float: left;
-    padding: 1%;
+    padding: 0 1% 0 1%;
 
 }
 
