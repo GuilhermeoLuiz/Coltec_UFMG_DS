@@ -6,7 +6,7 @@ public class ChatClient{
     //Atributos
     private Scanner scanner = new Scanner(System.in);;
     private Socket clientSocket;
-    private static String SERVER_ADDRESS = "127.0.0.1";
+    //private static String SERVER_ADDRESS = "127.0.0.1";
     private static int PORT = 12345;
 
     //main
@@ -18,11 +18,13 @@ public class ChatClient{
 
     //metodos
     public void start(){
+        
+        System.out.println("Digite o endereco ip: ");
+            String SERVER_ADDRESS = scanner.nextLine();
+
         try {
             clientSocket = new Socket(SERVER_ADDRESS, PORT);
             System.out.println("Cliente conectado ao servidor em " + SERVER_ADDRESS + " na porta " + PORT);
-
-
             messageLoop();
         } catch (Exception e) {
             System.out.println("Nao foi possivel incializar cliente de ip " + SERVER_ADDRESS + ": " + e.getMessage() );
@@ -34,7 +36,6 @@ public class ChatClient{
         String login = scanner.nextLine();
         String msg;
 
-        
         System.out.println("Chat aberto! ('chatfim') finaliza chat");
         try {
             PrintStream saida = new PrintStream(clientSocket.getOutputStream());

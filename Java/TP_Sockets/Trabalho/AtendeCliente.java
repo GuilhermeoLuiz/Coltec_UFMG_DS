@@ -1,14 +1,12 @@
 import java.util.Scanner;
 import java.net.Socket;
 
-
 public class AtendeCliente extends Thread {
     
     Socket client;
 
     AtendeCliente(Socket serverSocket){
         this.client = serverSocket;
-
     }
 
     @Override

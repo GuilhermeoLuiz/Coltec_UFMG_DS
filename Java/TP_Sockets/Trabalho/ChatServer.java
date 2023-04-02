@@ -3,8 +3,7 @@ import java.net.Socket;
 
 
 public class ChatServer{
-
-
+    
     // Atributos
     private int PORT = 12345;
     private static ServerSocket serverSocket;
@@ -33,8 +32,6 @@ public class ChatServer{
             try {
                 clientSocket = serverSocket.accept();
                 AtendeCliente ac = new AtendeCliente(clientSocket);
-                //clientSocket = serverSocket.accept();
-                ////////AtendeCliente ac = new AtendeCliente(serverSocket.accept());
                 System.out.println("Cliente de endereco ip " + clientSocket.getRemoteSocketAddress() + " conectou.");
                 ac.start();
 
@@ -43,18 +40,4 @@ public class ChatServer{
             }
         }
     }
-
-    /*private void leMessage() {
-
-        try {
-            Scanner entrada = new Scanner(clientSocket.getInputStream());
-            while (entrada.hasNextLine()) {
-                System.out.println(entrada.nextLine());
-            }            
-        } catch (Exception e) {
-            System.out.println("Nao foi possivel ler mensagens: " + e.getMessage());
-        }
-
-    }*/
-
 }
