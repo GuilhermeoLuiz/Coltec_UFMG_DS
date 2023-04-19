@@ -1,4 +1,4 @@
-var palavra = prompt("Digite uma pakavra para verificar se ela e palindromo: ");
+var palavra = prompt("Digite uma palavra para verificar se ela e palindromo: ");
 var palindromo = true;
 
 for(var i = 0; i < palavra.length; i++){
