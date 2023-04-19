@@ -1,23 +1,23 @@
-function min(x, y){
+function min(a, b){
 
-    if(x < y){
-        return x;
+    if(a < b){
+        return a;
     }
-    if(x > y){
-        return y;
+    if(a > b){
+        return b;
     } 
     else{
         return null;
     }
 }
 
-function max(x, y){
+function max(a, b){
 
-    if(x < y){
-        return y;
+    if(a < b){
+        return b;
     }
-    if(x > y){
-        return x;
+    if(a > b){
+        return a;
     } 
     else{
         return null;
