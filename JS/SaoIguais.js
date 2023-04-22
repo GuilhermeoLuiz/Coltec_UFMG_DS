@@ -1,17 +1,17 @@
-function saoIguais(objA, objB) {
-    let chavesA = Object.keys(objA);
-    let chavesB = Object.keys(objB);
+function deepEquals(obj1, obj2) {
+    let chavesA = Object.keys(obj1);
+    let chavesB = Object.keys(obj2);
   
     if (chavesA.length !== chavesB.length) {
       return false;
     }
   
     for (let chave of chavesA) {
-      let valorA = objA[chave];
-      let valorB = objB[chave];
+      let valorA = obj1[chave];
+      let valorB = obj2[chave];
   
       let saoObjetos = ehObjeto(valorA) && ehObjeto(valorB);
-      if ((saoObjetos && !saoIguais(valorA, valorB)) || (!saoObjetos && (valorA !== valorB))) {
+      if ((saoObjetos && !deepEquals(valorA, valorB)) || (!saoObjetos && (valorA !== valorB))) {
         return false;
       }
     }
