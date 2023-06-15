@@ -1,6 +1,5 @@
 <?php
-
-    class questao{
+    class Questao{
         public $question;
         public $options;
         public $answer;
@@ -9,9 +8,7 @@
             $this->question = $question;
             $this->options = $options;
             $this->answer = $answer;
-        }
-
-    
+        }    
     }
 
 ?>
