@@ -18,6 +18,10 @@
              Mais especificamente, esse sistema irá fazer o controle das respostas do jogo.
         </p>    
 
-        <a href="carrega_questao.php">Começar Jogo!</a>
+    <form action="carrega_questao.php" method="POST">
+        <input type="submit" value="Jogar">
+        <input type="hidden" name="numQuestao" value="0">
+    </form>
+
     </body>
 </html>

@@ -1,6 +1,21 @@
 <?php
   require("cria_questao.php");
-  $questao = load_question(0,"perguntas.json");
+
+  $numQuestao = htmlspecialchars($_POST["numQuestao"]);
+  $questao = load_question($numQuestao,"perguntas.json");
+
+  $respostaCorreta = htmlspecialchars($_POST["respostaCorreta"]);
+  $respostaInserida = htmlspecialchars($_POST["questao"]);
+
+  if(trim($respostaInserida) != trim($respostaCorreta))
+  {
+    return;
+  }
+
+  if($questao->question == null)
+  {
+    return;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -13,29 +28,32 @@
 
 <body>
 
-<form>
-  <fieldset>
-    <p>
-      <label><?=$questao->question?></label>
-    </p>
-    <p>
-      <input type="radio" name="questao" id="opcao_1" value="small" />
-      <label for="opcao_1"><?=$questao->options[0]?></label>
-    </p>
-    <p>
-      <input type="radio" name="questao" id="opcao_2" value="small" />
-      <label for="opcao_2"><?=$questao->options[1]?></label>
-    </p>
-    <p>
-      <input type="radio" name="questao" id="opcao_3" value="small" />
-      <label for="opcao_3"><?=$questao->options[2]?></label>
-    </p>
-    <p>
-      <input type="radio" name="questao" id="opcao_4" value="small" />
-      <label for="opcao_4"><?=$questao->options[3]?></label>
-    </p>
-  </fieldset>
-</form>
+  <form action="carrega_questao.php" method="POST">
+    <fieldset>
+      <p>
+        <label><?=$questao->question?></label>
+      </p>
+      <p>
+        <input type="radio" name="questao" id="opcao_1" value="0">
+        <label for="opcao_1"><?=$questao->options[0]?></label>
+      </p>
+      <p>
+        <input type="radio" name="questao" id="opcao_2" value="1">
+        <label for="opcao_2"><?=$questao->options[1]?></label>
+      </p>
+      <p>
+        <input type="radio" name="questao" id="opcao_3" value="2">
+        <label for="opcao_3"><?=$questao->options[2]?></label>
+      </p>
+      <p>
+        <input type="radio" name="questao" id="opcao_4" value="3">
+        <label for="opcao_4"><?=$questao->options[3]?></label>
+      </p>
+        <input type="hidden" name="respostaCorreta" id="respostaCorreta" value=<?=$questao->answer?>>
+        <input type="hidden" name="numQuestao" id="respostaCorreta" value=<?=$numQuestao+1?>>
+        <input type="submit" name="Enviar" id="enviar" value="enviar">
+    </fieldset>
+  </form>
 
 
     
