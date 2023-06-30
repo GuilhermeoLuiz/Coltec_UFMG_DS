@@ -1,19 +1,22 @@
 <?php
   require("cria_questao.php");
 
-  $numQuestao = htmlspecialchars($_POST["numQuestao"]);
-  $questao = load_question($numQuestao,"perguntas.json");
+   $id = htmlspecialchars($_GET["id"]);
+  // $questao = carregaPergunta($id, "perguntas.json");
+  $questao = carregaPergunta($id, "perguntas.json");
 
   $respostaCorreta = htmlspecialchars($_POST["respostaCorreta"]);
   $respostaInserida = htmlspecialchars($_POST["questao"]);
 
   if(trim($respostaInserida) != trim($respostaCorreta))
   {
+    echo "Resposta errada";
     return;
   }
 
   if($questao->question == null)
   {
+    echo "Fim";
     return;
   }
 ?>
@@ -27,8 +30,7 @@
 
 
 <body>
-
-  <form action="carrega_questao.php" method="POST">
+  <form action="perguntas.php?id=<?= $id + 1 ?>" method="POST">
     <fieldset>
       <p>
         <label><?=$questao->question?></label>
@@ -50,7 +52,7 @@
         <label for="opcao_4"><?=$questao->options[3]?></label>
       </p>
         <input type="hidden" name="respostaCorreta" id="respostaCorreta" value=<?=$questao->answer?>>
-        <input type="hidden" name="numQuestao" id="respostaCorreta" value=<?=$numQuestao+1?>>
+        <!-- <input type="hidden" name="id" id="id" value=<?=$id+1?>> -->
         <input type="submit" name="Enviar" id="enviar" value="enviar">
     </fieldset>
   </form>

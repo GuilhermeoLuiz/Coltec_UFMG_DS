@@ -8,7 +8,7 @@
     </head>
 
     <body>
-        <h1> Show do Bilhao </h1>
+        <h1> Show do Milhao </h1>
         <p> Seja bem vindo ao jogo <strong>Show do Milhao</strong>! </p>
         <p> <em> explicação <em>: O Show do Bilhão é um programa idealizado pela emissora SBT (Sistema Belo-Horizontino de Televisão). Neste programa, um candidato
              escolhido da audiência é submetido a uma sequência de 5 perguntas de conhecimento geral. A medida em que o candidato responde 
