@@ -1,26 +1,27 @@
+<!-- php responsavel pelo gerenciamento da pagina -->
 <?php
   require("cria_questao.php");
 
-   $id = htmlspecialchars($_GET["id"]);
-  // $questao = carregaPergunta($id, "perguntas.json");
+  $id = htmlspecialchars($_GET["id"]);
   $questao = carregaPergunta($id, "perguntas.json");
 
   $respostaCorreta = htmlspecialchars($_POST["respostaCorreta"]);
   $respostaInserida = htmlspecialchars($_POST["questao"]);
+  $saldoAcertos = ($id);
 
   if(trim($respostaInserida) != trim($respostaCorreta))
   {
-    echo "Resposta errada";
-    return;
+    header("Location: game_over.php?saldoAcertos=" . ($saldoAcertos - 1));
   }
 
   if($questao->question == null)
   {
-    echo "Fim";
+    echo "Fim, voce ganhou!";
     return;
   }
 ?>
 
+<!-- Definicoes de cabecalho da pagina -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +29,7 @@
     <title>Questões</title>
 </head>
 
-
+<!-- Imprime o formulario de questoes -->
 <body>
   <form action="perguntas.php?id=<?= $id + 1 ?>" method="POST">
     <fieldset>
@@ -52,10 +53,12 @@
         <label for="opcao_4"><?=$questao->options[3]?></label>
       </p>
         <input type="hidden" name="respostaCorreta" id="respostaCorreta" value=<?=$questao->answer?>>
-        <!-- <input type="hidden" name="id" id="id" value=<?=$id+1?>> -->
         <input type="submit" name="Enviar" id="enviar" value="enviar">
     </fieldset>
   </form>
+
+  <!-- Imprime o numero de acertos atual -->
+  <p> Numero de acertos: <?=($saldoAcertos)?> </p>
 
 
     
