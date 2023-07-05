@@ -18,10 +18,29 @@
              Mais especificamente, esse sistema irá fazer o controle das respostas do jogo.
         </p>    
 
-    <form action="perguntas.php" method="GET">
+
+        <form method="POST" action="login.php">
+            <fieldset>
+                <p>
+                    <label> Login </label>
+                </p>
+                <input type="text" name="login" id="login" value="">
+                <p>
+                    <label> Senha </label>
+                </p>
+                <input type="password" name="senha" id="senha" value="">
+                <br>
+                <br>
+                <input type="submit" name="logar" value="Login">
+                <input type="submit" name="registrar" value="Resgistrar">
+
+            </fieldset>
+        </form>    
+
+    <!-- <form action="perguntas.php" method="GET">
         <input type="submit" value="Jogar">
         <input type="hidden" name="id" value="0">
-    </form>
+    </form> -->
 
     </body>
 </html>

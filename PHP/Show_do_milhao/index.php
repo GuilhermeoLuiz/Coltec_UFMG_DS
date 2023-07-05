@@ -1,3 +1,9 @@
+<?php 
+    require("Usuario.php");
+    require("login.php");
+    
+?>
+
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -8,7 +14,7 @@
     </head>
 
     <body>
-        <h1> Show do Milhao </h1>
+        <h1> Show do Bilhao </h1>
         <p> Seja bem vindo ao jogo <strong>Show do Milhao</strong>! </p>
         <p> <em> explicação <em>: O Show do Bilhão é um programa idealizado pela emissora SBT (Sistema Belo-Horizontino de Televisão). Neste programa, um candidato
              escolhido da audiência é submetido a uma sequência de 5 perguntas de conhecimento geral. A medida em que o candidato responde 
@@ -17,11 +23,33 @@
              candidato. O proprietário da emissora requisitou que você desenvolvesse uma aplicação web que gerencie as perguntas do jogo. 
              Mais especificamente, esse sistema irá fazer o controle das respostas do jogo.
         </p>    
+    
+        <form method="POST" action="">
+            <fieldset>
+                <p>
+                    <label> Login </label>
+                </p>
+                <input type="text" name="login" id="login" value="">
+                <p>
+                    <label> Senha </label>
+                </p>
+                <input type="password" name="senha" id="senha" value="">
 
-    <form action="perguntas.php" method="GET">
-        <input type="submit" value="Jogar">
-        <input type="hidden" name="id" value="0">
-    </form>
+
+                <p>
+                    <label> Nome </label>
+                </p>
+                    <input type="text" name="nome" id="nome" value="">
+                <p>
+                    <label> Email </label>
+                </p>
+                    <input type="text" name="email" id="email" value="">
+
+                <input type="submit" name="logar" value="Login">
+                <input type="submit" name="registrar" value="Resgistrar">
+
+            </fieldset>
+        </form>  
 
     </body>
 </html>
