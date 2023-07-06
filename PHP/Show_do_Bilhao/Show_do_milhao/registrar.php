@@ -1,6 +1,5 @@
 <?php 
     require("Usuario.php");
-    require("login.php");
 
     $login = $_POST['login'];
     $senha = $_POST['senha'];
@@ -52,5 +51,6 @@
         ";
     }
 
+    include("rodape.inc");
 
 ?>

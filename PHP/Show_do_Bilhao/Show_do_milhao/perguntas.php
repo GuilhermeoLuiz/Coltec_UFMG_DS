@@ -19,6 +19,18 @@
   if($questao->question == null)
   {
     echo "Fim, voce ganhou!";
+    echo "
+      <form action='perguntas.php' method='GET'>
+          <input type='submit' value='Jogar novamente'>
+          <input type='hidden' name='id' value='0'>
+      </form>
+    ";
+    echo "
+      <form action='login.php' method='POST'>
+          <input type='submit' name='logOut' id='logOut' value='Sair'>
+      </form>
+    ";
+    include("rodape.inc"); 
     return;
   }
 ?>
@@ -63,6 +75,6 @@
   <p> Numero de acertos: <?=($saldoAcertos)?> </p>
 
 
-    
+  <?php include("rodape.inc"); ?>
 </body>
 </html>

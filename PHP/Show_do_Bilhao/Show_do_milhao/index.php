@@ -18,6 +18,16 @@
              Mais especificamente, esse sistema irá fazer o controle das respostas do jogo.
         </p>    
 
+        <?php
+        // Verificar se os cookies estão definidos
+        if (isset($_COOKIE['ultima_pontuacao']) && isset($_COOKIE['ultima_acesso'])) {
+            $ultimaPontuacao = $_COOKIE['ultima_pontuacao'];
+            $ultimaAcesso = $_COOKIE['ultima_acesso'];
+
+            echo "<p>Última Pontuação: " . $ultimaPontuacao . "</p>";
+            echo "<p>Último Acesso: " . $ultimaAcesso . "</p>";
+        }
+        ?>
 
         <form method="POST" action="login.php">
             <fieldset>
@@ -35,7 +45,8 @@
                 <input type="submit" name="registrar" value="Resgistrar">
 
             </fieldset>
-        </form>    
+        </form> 
 
+        <?php include("rodape.inc");?>
     </body>
 </html>

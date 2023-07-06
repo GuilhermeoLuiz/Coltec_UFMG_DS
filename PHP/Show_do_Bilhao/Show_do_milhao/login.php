@@ -14,8 +14,8 @@ if($_POST['logar']){
 
 if ($_POST['logOut']) {
     unset($_SESSION['Usuarios']);
+    header("Location: index.php");
 }
-
 
 function registrar(){
     
@@ -31,7 +31,7 @@ function registrar(){
                 <p>
                     <label> Email </label>
                 </p>
-                    <input type='text' name='email' id='email' value=''>
+                    <input type='email' name='email' id='email' value=''>
                 <p>
                     <label> Login </label>
                 </p>
@@ -84,4 +84,5 @@ function login(){
     return;
 }
 
+    include("rodape.inc");
 ?>
