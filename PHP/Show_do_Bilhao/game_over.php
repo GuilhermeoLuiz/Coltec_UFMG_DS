@@ -1,11 +1,10 @@
 <?php
+include("menu.inc");
+
 session_start();
 $saldoAcertos = $_GET['saldoAcertos'];
 
-// Definir cookie para armazenar a pontuação
 setcookie('ultima_pontuacao', $saldoAcertos);
-
-// Definir cookie para armazenar a última vez de acesso
 setcookie('ultima_acesso', date('d-m-Y H:i:s'));
 
 

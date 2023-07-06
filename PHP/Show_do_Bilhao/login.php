@@ -1,14 +1,15 @@
 <?php
+include("menu.inc");
 session_start();
 
 $login = $_POST['login'];
 $senha = $_POST['senha'];
 
-if($_POST['registrar']){
+if ($_POST['registrar']) {
     registrar();
 }
 
-if($_POST['logar']){
+if ($_POST['logar']) {
     login();
 }
 
@@ -17,8 +18,9 @@ if ($_POST['logOut']) {
     header("Location: index.php");
 }
 
-function registrar(){
-    
+function registrar()
+{
+
     echo "
     <form method='POST' action='registrar.php'>
     
@@ -48,12 +50,13 @@ function registrar(){
 }
 
 
-function login(){
+function login()
+{
 
     $eUsuario = false;
     $login = $_POST['login'];
     $senha = $_POST['senha'];
-    
+
     $arquivo = fopen("usuarios.json", "r");
     $lerArquivo = json_decode(fread($arquivo, filesize("usuarios.json")));
 
@@ -67,7 +70,7 @@ function login(){
 
     fclose($arquivo);
 
-    if($eUsuario == true){
+    if ($eUsuario == true) {
         echo "
         <form action='perguntas.php' method='GET'>
             <p> Tudo Certo, podemos jogar! </p>
@@ -75,8 +78,7 @@ function login(){
             <input type='hidden' name='id' value='0'>
         </form>
         ";
-    }
-    else{
+    } else {
         echo "Usuario nao possui registro. Realize seu cadastro";
         registrar();
     }
@@ -84,5 +86,5 @@ function login(){
     return;
 }
 
-    include("rodape.inc");
+include("rodape.inc");
 ?>

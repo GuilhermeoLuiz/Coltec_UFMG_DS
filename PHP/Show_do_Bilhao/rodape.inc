@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Meu Site</title>
   <style>
@@ -12,9 +13,11 @@
     }
   </style>
 </head>
+
 <body>
   <footer class="footer">
     <p>© 2023 Guilherme Luiz. Todos os direitos reservados. Desenvolvido por Guilherme Luiz.</p>
   </footer>
 </body>
+
 </html>
