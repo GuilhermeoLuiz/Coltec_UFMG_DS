@@ -1,5 +1,7 @@
 <!-- php responsavel pelo gerenciamento da pagina -->
 <?php
+  session_start();
+  
   require("cria_questao.php");
 
   $id = htmlspecialchars($_GET["id"]);

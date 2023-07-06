@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 $login = $_POST['login'];
 $senha = $_POST['senha'];
 
@@ -68,13 +70,15 @@ function login(){
     if($eUsuario == true){
         echo "
         <form action='perguntas.php' method='GET'>
+            <p> Tudo Certo, podemos jogar! </p>
             <input type='submit' value='Jogar'>
             <input type='hidden' name='id' value='0'>
         </form>
         ";
     }
     else{
-        echo "Usuario nao registrado";
+        echo "Usuario nao possui registro. Realize seu cadastro";
+        registrar();
     }
 
     return;

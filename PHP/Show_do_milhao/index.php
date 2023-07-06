@@ -1,9 +1,3 @@
-<?php 
-    require("Usuario.php");
-    require("login.php");
-    
-?>
-
 <!DOCTYPE html>
 
 <html lang="pt-br">
@@ -23,8 +17,9 @@
              candidato. O proprietário da emissora requisitou que você desenvolvesse uma aplicação web que gerencie as perguntas do jogo. 
              Mais especificamente, esse sistema irá fazer o controle das respostas do jogo.
         </p>    
-    
-        <form method="POST" action="">
+
+
+        <form method="POST" action="login.php">
             <fieldset>
                 <p>
                     <label> Login </label>
@@ -34,22 +29,13 @@
                     <label> Senha </label>
                 </p>
                 <input type="password" name="senha" id="senha" value="">
-
-
-                <p>
-                    <label> Nome </label>
-                </p>
-                    <input type="text" name="nome" id="nome" value="">
-                <p>
-                    <label> Email </label>
-                </p>
-                    <input type="text" name="email" id="email" value="">
-
+                <br>
+                <br>
                 <input type="submit" name="logar" value="Login">
                 <input type="submit" name="registrar" value="Resgistrar">
 
             </fieldset>
-        </form>  
+        </form>    
 
     </body>
 </html>

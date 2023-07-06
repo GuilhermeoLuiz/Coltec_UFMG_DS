@@ -1,5 +1,4 @@
 <?php
-
 $login = $_POST['login'];
 $senha = $_POST['senha'];
 
@@ -15,39 +14,41 @@ if ($_POST['logOut']) {
     unset($_SESSION['Usuarios']);
 }
 
+
 function registrar(){
-
-    $login = $_POST['login'];
-    $senha = $_POST['senha'];
-    $nome = $_POST['nome'];
-    $email = $_POST['email'];
     
-    $arquivo = fopen("usuarios.json", "r+");
-    if(filesize("usuarios.json") > 0){
-        $lerArquivo = json_decode(fread($arquivo, filesize("usuarios.json")));
-    }else{
-        $lerArquivo = array();
-    }
-    $usuarioJaExiste = false;
-    foreach ($lerArquivo as $usuario) {
-        if ($usuario->login == $login) {
-            $usuarioJaExiste = true;
-            break;
-        }
-    }
+    echo "
+    <form method='POST' action='registrar.php'>
+    
+        <fieldset>
 
-    if(!$usuarioJaExiste){
-        array_push($lerArquivo, new Usuario($login, $senha, $email, $nome));
-        fseek($arquivo, 0, SEEK_SET);
-        fwrite($arquivo, json_encode($lerArquivo));
-        fclose($arquivo);
-    }else {
-        echo "Usuario já existe meu mano";
-    }
+                <p>
+                    <label> Nome </label>
+                </p>
+                    <input type='text' name='nome' id='nome' value=''>
+                <p>
+                    <label> Email </label>
+                </p>
+                    <input type='text' name='email' id='email' value=''>
+                <p>
+                    <label> Login </label>
+                </p>
+                    <input type='text' name='login' id='login' value=''>
+                <p>
+                    <label> Senha </label>
+                </p>
+                <input type='password' name='senha' id='senha' value=''>
+                <input type='submit' name='registrar' value='Resgistrar'>
+
+        </fieldset>
+    </form>
+    ";
 }
+
 
 function login(){
 
+    $eUsuario = false;
     $login = $_POST['login'];
     $senha = $_POST['senha'];
     
@@ -56,12 +57,28 @@ function login(){
 
     foreach ($lerArquivo as $usuario) {
         if ($usuario->login == $login && $usuario->senha == $senha) {
+            $eUsuario = true;
             $_SESSION['Usuarios'] = $usuario;
             break;
         }
     }
 
     fclose($arquivo);
+
+    if($eUsuario == true){
+        echo "
+        <form action='perguntas.php' method='GET'>
+            <p> Tudo Certo, podemos jogar! </p>
+            <input type='submit' value='Jogar'>
+            <input type='hidden' name='id' value='0'>
+        </form>
+        ";
+    }
+    else{
+        echo "Usuario nao registrado";
+    }
+
+    return;
 }
 
 ?>
