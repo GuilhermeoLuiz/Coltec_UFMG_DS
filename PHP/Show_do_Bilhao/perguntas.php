@@ -1,9 +1,15 @@
 <!-- php responsavel pelo gerenciamento da pagina -->
 <?php
+
 include("menu.inc");
+require("cria_questao.php");
+
 session_start();
 
-require("cria_questao.php");
+if(!isset($_SESSION['Usuarios']))
+{
+  header("Location: index.php");
+}
 
 $id = htmlspecialchars($_GET["id"]);
 $questao = carregaPergunta($id, "perguntas.json");

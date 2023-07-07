@@ -38,9 +38,9 @@
 
     if ($usuarioCriado) {
         echo "
-                <form action='perguntas.php' method='GET'>
-                    <p> Tudo Certo, podemos jogar! </p>
-                    <input type='submit' value='Jogar'>
+                <form action='index.php' method='POST'>
+                    <p> Registro realizado com sucesso! </p>
+                    <input type='submit' value='Logar'>
                     <input type='hidden' name='id' value='0'>
                 </form>
             ";

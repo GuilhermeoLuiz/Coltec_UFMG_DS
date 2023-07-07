@@ -56,15 +56,31 @@ function login()
     $eUsuario = false;
     $login = $_POST['login'];
     $senha = $_POST['senha'];
+    $senhaIncorreta = false;
 
     $arquivo = fopen("usuarios.json", "r");
-    $lerArquivo = json_decode(fread($arquivo, filesize("usuarios.json")));
 
-    foreach ($lerArquivo as $usuario) {
-        if ($usuario->login == $login && $usuario->senha == $senha) {
-            $eUsuario = true;
-            $_SESSION['Usuarios'] = $usuario;
-            break;
+    if ($arquivo) {
+
+            $tamanhoArquivo = filesize("usuarios.json");
+
+        if ($tamanhoArquivo > 0) 
+        {
+
+            $lerArquivo = json_decode(fread($arquivo, filesize("usuarios.json")));
+
+            foreach ($lerArquivo as $usuario) {
+                if ($usuario->login == $login && $usuario->senha == $senha)
+                {
+                    $eUsuario = true;
+                    $_SESSION['Usuarios'] = $usuario;
+                    break;
+                }
+                elseif($usuario->login == $login && $usuario->senha != $senha)
+                {
+                    $senhaIncorreta = true;
+                }
+            }
         }
     }
 
@@ -78,9 +94,21 @@ function login()
             <input type='hidden' name='id' value='0'>
         </form>
         ";
+    } elseif($senhaIncorreta)
+    {
+        echo"
+            <p> Senha Incorreta </p>
+            <form action='index.php' method='POST'>
+            <input type='submit' name='logar' value='Logar'>
+            ";
+
     } else {
-        echo "Usuario nao possui registro. Realize seu cadastro";
-        registrar();
+        echo "
+            <p> Usuario nao possui registro. Realize seu cadastro </p>
+            <form action='login.php' method='POST'>
+            <input type='submit' name='registrar' value='Resgistrar'>
+            ";
+        
     }
 
     return;
